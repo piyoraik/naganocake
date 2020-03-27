@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  root 'public/items#top'
-
   devise_for :end_users,
   path: "end_user",
   controllers: {
@@ -9,8 +7,11 @@ Rails.application.routes.draw do
     registrations: 'public/registrations'
   }
 
-  namespace :public do
-    resources :items, only: [:index, :show]
+  root 'public/items#top'
+
+  scope module: :public do
+    resources :end_users, only: [:show, :edit, :update]
+    get '/destroy_show' => 'end_uesrs#destroy_show'
   end
 
   devise_for :admins,
