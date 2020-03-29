@@ -1,7 +1,19 @@
-<h2>Sign up</h2>
+<h2>新規会員登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <label>氏名</label>
+    (性)<%= f.text_field :first_name %>
+    (名)<%= f.text_field :last_name %>
+  </div>
+
+  <div>
+    <label>フリガナ</label>
+    (セイ)<%= f.text_field :last_name_kana %>
+    (メイ)<%= f.text_field :first_name_kana %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />

@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+#header {
+    height: 100px;
+}
+
+.submit {
+    text-align: center;
+}
+
+div.field {
+    margin-bottom: 10px;
+}

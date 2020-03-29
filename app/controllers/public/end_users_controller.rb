@@ -1,6 +1,6 @@
 class Public::EndUsersController < ApplicationController
     # 顧客のマイページ
-    def show
+    def index
     end
 
     # 顧客の登録情報編集画面
