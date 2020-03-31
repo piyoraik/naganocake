@@ -1,7 +1,9 @@
 class Admin::EndUsersController < ApplicationController
+    before_action :authenticate_admin!
     layout 'admin_layout'
     # 顧客一覧画面
     def index
+        @users = EndUser.all
     end
 
     # 顧客詳細画面
