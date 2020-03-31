@@ -9,7 +9,7 @@
         <div class="field row">
           <label class="col-xs-3">氏名</label>
           <em class="col-xs-1">(性)</em>
-          <%= f.text_field :first_name, class:"col-xs-3" %>
+          <%= f.text_field :first_name, class:"col-xs-3", autofocus: true %>
           <em class="col-xs-1">(名)</em>
           <%= f.text_field :last_name %>
         </div>
@@ -24,7 +24,7 @@
 
         <div class="field row">
           <label class="col-xs-4">メールアドレス</label>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"col-xs-7" %>
+          <%= f.email_field :email, autocomplete: "email",class:"col-xs-7" %>
         </div>
 
         <div class="field row">
