@@ -1,4 +1,5 @@
 class Public::EndUsersController < ApplicationController
+    before_action :authenticate_end_user!
     # 顧客のマイページ
     def index
     end
