@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   root 'public/items#top'
 
   scope module: :public do
-    resources :end_users, only: [:index, :edit, :update]
+    resources :end_users, only: [:index, :update]
+    get '/end_users/edit' => 'end_users#edit'
     get '/destroy_show' => 'end_uesrs#destroy_show'
   end
 
