@@ -18,6 +18,7 @@
             <nav class="nav navbar-nav navbar-right">
                 <% if admin_signed_in? %>
                     <li><a href="#">受注一覧</a></li>
+                    <li><%= link_to '顧客一覧', admin_end_users_path %></li>
                     <li><a href="#">商品登録</a></li>
                     <li><%= link_to "ログアウト",destroy_admin_session_path, method: :delete %></li>
                 <% else %>
