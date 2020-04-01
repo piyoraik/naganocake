@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :end_users, only: [:index, :update]
     get '/end_users/edit' => 'end_users#edit'
-    get '/destroy_show' => 'end_uesrs#destroy_show'
+    get '/destroy_show' => 'end_users#destroy_show'
   end
 
   devise_for :admins,

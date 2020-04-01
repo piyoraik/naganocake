@@ -3,4 +3,5 @@ class EndUser < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
           :rememberable, :validatable
+  acts_as_paranoid
 end
