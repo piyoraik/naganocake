@@ -8,6 +8,7 @@ class Admin::ItemsController < ApplicationController
 
     # 商品新規登録画面
     def new
+        @product = Product.new
     end
 
     # 商品情報の新規登録
