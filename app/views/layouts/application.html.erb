@@ -17,6 +17,7 @@
         </nav>
         <nav class="nav navbar-nav navbar-right">
           <% if end_user_signed_in? %>
+            <p class="navbar-text">ようこそ <%= current_end_user.first_name + current_end_user.last_name %>さん。</p>
             <li><%= link_to 'マイページ', end_users_path %></li>
             <li><a href="#">カート一覧</a></li>
             <li><%= link_to "ログアウト",destroy_end_user_session_path, method: :delete %></li>

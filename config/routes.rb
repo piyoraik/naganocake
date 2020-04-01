@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   root 'public/items#top'
 
+  get '/items' => 'public/items#index'
+
   scope module: :public do
     get '/end_users/edit' => 'end_users#edit'
     get '/end_users/destroy_show' => 'end_users#destroy_show'
