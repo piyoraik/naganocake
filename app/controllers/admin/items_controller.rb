@@ -1,7 +1,9 @@
 class Admin::ItemsController < ApplicationController
     before_action :authenticate_admin!
+    layout 'admin_layout'
     # 商品一覧
     def index
+        @products = Product.all
     end
 
     # 商品新規登録画面

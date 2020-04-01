@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <h3>商品一覧画面</h3>
+        <div class="col-xs-7">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>商品ID</th>
+                        <th>商品名</th>
+                        <th>税抜価格</th>
+                        <th>ジャンル</th>
+                        <th>ステータス</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @products.each do |product| %>
+                        <tr>
+                            <td><%= product.id %></td>
+                            <td><%= product.name %></td>
+                            <td><%= product.tax %></td>
+                            <td><%= product.category.name %></td>
+                            <td>
+                                <% unless product.paranoia_destroyed? %>
+                                    販売中
+                                <% else %>
+                                    販売停止中
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
