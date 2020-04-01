@@ -20,6 +20,9 @@ class Public::EndUsersController < ApplicationController
 
     # 顧客の退会処理
     def update_destroy
+        user = current_end_user
+        user.destroy
+        redirect_to root_path
     end
 
     private

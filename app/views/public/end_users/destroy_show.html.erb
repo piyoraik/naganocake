@@ -11,7 +11,7 @@
                 <%= link_to  "退会しない", end_users_path, class:"btn btn-primary" %>
             </div>
             <div class="taikai-div col-xs-offset-2">
-                <%= link_to  "退会する", '#', class:"btn btn-danger" %>
+                <%= link_to  "退会する", end_users_destroy_path, method: :patch, to: "controller#method", class:"btn btn-danger" %>
             </div>
         </div>
     </div>

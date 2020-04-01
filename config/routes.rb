@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   root 'public/items#top'
 
   scope module: :public do
-    resources :end_users, only: [:index, :update]
     get '/end_users/edit' => 'end_users#edit'
-    get '/destroy_show' => 'end_users#destroy_show'
+    get '/end_users/destroy_show' => 'end_users#destroy_show'
+    patch '/end_users/destroy' => 'end_users#update_destroy'
+    resources :end_users, only: [:index, :update]
   end
 
   devise_for :admins,
