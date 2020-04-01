@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_123932) do
+ActiveRecord::Schema.define(version: 2020_04_01_114356) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2020_03_31_123932) do
     t.string "postcode"
     t.string "address"
     t.string "phone_number"
-    t.string "member_status", default: "有効"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.datetime "remember_created_at"

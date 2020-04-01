@@ -3,7 +3,7 @@ class Admin::EndUsersController < ApplicationController
     layout 'admin_layout'
     # 顧客一覧画面
     def index
-        @users = EndUser.all
+        @users = EndUser.with_deleted
     end
 
     # 顧客詳細画面

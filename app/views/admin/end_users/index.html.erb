@@ -17,7 +17,13 @@
                             <td><%= user.id %></td>
                             <td><%= user.first_name + "　" + user.last_name %></td>
                             <td><%= user.email %></td>
-                            <td><%= user.member_status %></td>
+                            <td>
+                                <% unless user.paranoia_destroyed? %>
+                                    有効
+                                <% else %>
+                                    退会済み
+                                <% end %>
+                            </td>
                         </tr>
                     <% end %>
                 </tbody>
