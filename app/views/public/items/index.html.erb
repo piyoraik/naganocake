@@ -6,9 +6,11 @@
                     <th>ジャンル検索</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>aaaa</td>
-                    </tr>
+                    <% @categorys.each do |category| %>
+                        <tr>
+                            <td><%= category.name %></td>
+                        </tr>
+                    <% end %>
                 </tbody>
             </table>
         </div>

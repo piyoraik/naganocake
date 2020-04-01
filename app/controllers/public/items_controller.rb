@@ -3,6 +3,7 @@ class Public::ItemsController < ApplicationController
     end
 
     def index
+        @categorys = Category.all
     end
 
     def show

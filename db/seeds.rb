@@ -21,3 +21,20 @@ EndUser.create!(
     email: 'test@test.test',
     password: 'password'
 )
+
+Category.create!(
+    [
+        {
+            name: 'ケーキ'
+        },
+        {
+            name: 'プリン'
+        },
+        {
+            name: '焼き菓子'
+        },
+        {
+            name: 'キャンディ'
+        }
+    ]
+)
