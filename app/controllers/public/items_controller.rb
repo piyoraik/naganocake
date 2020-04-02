@@ -3,10 +3,10 @@ class Public::ItemsController < ApplicationController
     end
 
     def index
-        @categorys = Category.all
         @products = Product.all
     end
 
     def show
+        @product = Product.find(params[:id])
     end
 end

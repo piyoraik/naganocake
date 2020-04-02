@@ -20,6 +20,7 @@ class Admin::ItemsController < ApplicationController
 
     # 商品詳細画面
     def show
+        @product = Product.find(params[:id])
     end
 
     # 商品編集画面

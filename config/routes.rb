@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root 'public/items#top'
 
   get '/items' => 'public/items#index'
+  get '/items/:id' => 'public/items#show'
 
   scope module: :public do
     get '/end_users/edit' => 'end_users#edit'

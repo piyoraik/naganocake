@@ -1,19 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class='col-xs-3'>
-            <table class="table table-bordered">
-                <thead>
-                    <th>ジャンル検索</th>
-                </thead>
-                <tbody>
-                    <% @categorys.each do |category| %>
-                        <tr>
-                            <td><%= category.name %></td>
-                        </tr>
-                    <% end %>
-                </tbody>
-            </table>
-        </div>
+        <%= render "layouts/category", categorys: Category.all %>
         <div class="col-xs-9">
             <div>
                 <h2 class="items-list">商品一覧</h2><span class="items-count">(全<%= @products.count %>件)</span>

@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4">
+            <%= attachment_image_tag @product, :image, :fill, 300,300, fallback: 'sample.png' %>
+        </div>
+        <div class="col-xs-8">
+            <div class="field row">
+                <label class="col-xs-3">商品名</label>
+                <%= @product.name %>
+            </div>
+            <div class="field row">
+                <label class="col-xs-3">商品説明</label>
+                <%= @product.description %>
+            </div>
+            <div class="field row">
+                <label class="col-xs-3">ジャンル</label>
+                <%= @product.category.name %>
+            </div>
+            <div class="field row">
+                <label class="col-xs-3">税込価格(税抜価格)</label>
+                <%= @product.tax %>円
+            </div>
+            <div class="field row">
+                <label class="col-xs-3">販売ステータス</label>
+                <%= @product.status %>
+            </div>
+        </div>
+    </div>
+</div>
