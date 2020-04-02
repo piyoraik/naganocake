@@ -22,13 +22,7 @@
                             <td><%= product.name %></td>
                             <td><%= product.tax %></td>
                             <td><%= product.category.name %></td>
-                            <td>
-                                <% unless product.paranoia_destroyed? %>
-                                    販売中
-                                <% else %>
-                                    販売停止中
-                                <% end %>
-                            </td>
+                            <td><%= product.status %></td>
                         </tr>
                     <% end %>
                 </tbody>
