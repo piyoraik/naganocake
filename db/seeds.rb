@@ -38,3 +38,36 @@ Category.create!(
         }
     ]
 )
+
+Product.create!(
+    [
+        {
+            name: 'ショートケーキ',
+            description: "おいしいよーーー",
+            category_id: '1',
+            tax: '1500',
+            status: '販売中'
+        },
+        {
+            name: '焼きプリン',
+            description: "おいしいよーーー",
+            category_id: '2',
+            tax: '1500',
+            status: '販売中'
+        },
+        {
+            name: '焼き菓子',
+            description: "おいしいよーーー",
+            category_id: '3',
+            tax: '1500',
+            status: '販売中'
+        },
+        {
+            name: 'りんご飴',
+            description: "おいしいよーーー",
+            category_id: '4',
+            tax: '1500',
+            status: '販売中'
+        }
+    ]
+)
