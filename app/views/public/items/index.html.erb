@@ -15,7 +15,18 @@
             </table>
         </div>
         <div class="col-xs-9">
-            <h2>商品一覧</h2>
+            <div>
+                <h2 class="items-list">商品一覧</h2><span class="items-count">(全<%= @products.count %>件)</span>
+            </div>
+            <div>
+                <% @products.each do |product| %>
+                    <section class="col-xs-4">
+                        <%= attachment_image_tag product, :image, :fill, 230,154, fallback: 'sample.png' %>
+                        <h3 class="product-name"><%= product.name %></h3>
+                        <p>¥<%= product.tax %></p>
+                    </section>
+                <% end %>
+            </div>
         </div>
     </div>
 </div>

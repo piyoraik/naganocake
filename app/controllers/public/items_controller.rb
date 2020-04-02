@@ -4,6 +4,7 @@ class Public::ItemsController < ApplicationController
 
     def index
         @categorys = Category.all
+        @products = Product.all
     end
 
     def show
