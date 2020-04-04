@@ -1,5 +1,16 @@
 <div class="container">
     <div class="row">
         <%= render 'layouts/category',categorys: Category.all %>
+        <div class="col-xs-4">
+            <%= attachment_image_tag @product, :image, :fill, 60, 60, fallback: 'sample.png' %>
+        </div>
+        <div class="col-xs-5">
+            <h3><%= @product.name %></h3>
+            <p><%= @product.description %></p>
+            <h4>¥ <%= @product.tax %><em>(税込)</em></h4>
+        </div>
+        <div class=" col-xs-offset-9 col-xs-5">
+        aaa
+        </div>
     </div>
 </div>
