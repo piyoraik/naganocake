@@ -3,12 +3,11 @@ class Public::ItemsController < ApplicationController
     end
 
     def index
-        @products = Product.all
+        @products = Item.all
     end
 
     def show
-        @product = Product.find(params[:id])
-        $test_id = Product.find(params[:id])
-        @cart_item = Cart.new
+        @product = Item.find(params[:id])
+        @cart_item = CartItem.new
     end
 end

@@ -1,4 +1,4 @@
-class Product < ApplicationRecord
+class Item < ApplicationRecord
     acts_as_paranoid
     belongs_to :genre
     attachment :image

@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <%= render 'layouts/category',categorys: Category.all %>
+        <%= render 'layouts/category',categorys: Genre.all %>
         <div class="col-xs-4">
             <%= attachment_image_tag @product, :image, :fill, 60, 60, fallback: 'sample.png' %>
         </div>

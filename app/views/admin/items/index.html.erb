@@ -21,7 +21,7 @@
                             <td><%= product.id %></td>
                             <td><%= link_to product.name, admin_item_path(product) %></td>
                             <td><%= product.tax %></td>
-                            <td><%= product.category.name %></td>
+                            <th><%= product.genre.name %></th>
                             <td><%= product.status %></td>
                         </tr>
                     <% end %>

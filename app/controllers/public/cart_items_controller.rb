@@ -18,7 +18,7 @@ class Public::CartItemsController < ApplicationController
 
     # カート内商品データ追加
     def create
-        cart = Cart.new(cart_add_params)
+        cart = CartItem.new(cart_add_params)
         cart.end_user_id = current_end_user.id
         cart.product_id = $test_id
         cart.save
@@ -27,6 +27,6 @@ class Public::CartItemsController < ApplicationController
 
     private
         def cart_add_params
-            params.require(:cart).permit(:product_id, :end_user_id, :number)
+            params.require(:cart_item).permit(:product_id, :end_user_id, :number)
         end
 end
