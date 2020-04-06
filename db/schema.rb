@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_113954) do
+ActiveRecord::Schema.define(version: 2020_04_06_053722) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -21,18 +21,10 @@ ActiveRecord::Schema.define(version: 2020_04_02_113954) do
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
-  create_table "carts", force: :cascade do |t|
+  create_table "cart_items", force: :cascade do |t|
     t.integer "product_id"
     t.integer "end_user_id"
     t.integer "number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.string "deleted_at"
-    t.string "datatime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,7 +47,15 @@ ActiveRecord::Schema.define(version: 2020_04_02_113954) do
     t.index ["email"], name: "index_end_users_on_email", unique: true
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.string "deleted_at"
+    t.string "datatime"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
     t.integer "category_id"
     t.string "name"
     t.text "description"

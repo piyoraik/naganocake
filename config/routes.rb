@@ -9,14 +9,14 @@ Rails.application.routes.draw do
 
   root 'public/items#top'
 
+  get '/items/:id' => 'public/items#show', as: 'item'
   get '/items' => 'public/items#index'
-  get '/items/:id' => 'public/items#show'
 
   get '/cart_items' => 'public/cart_items#index'
+  post '/cart_items' => 'public/cart_items#create'
   patch '/cart_items/:id' => 'public/cart_items#update'
   delete '/cart_items/:id' => 'public/cart_items#destroy'
   delete '/cart_items/all' => 'public/cart_items#all_destroy'
-  post '/cart_items' => 'public/cart_items#create'
 
   scope module: :public do
     get '/end_users/edit' => 'end_users#edit'

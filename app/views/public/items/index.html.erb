@@ -8,9 +8,11 @@
             <div>
                 <% @products.each do |product| %>
                     <section class="col-xs-4">
-                        <%= attachment_image_tag product, :image, :fill, 230,154, fallback: 'sample.png' %>
-                        <h3 class="product-name"><%= product.name %></h3>
-                        <p>¥<%= product.tax %></p>
+                        <%= link_to item_path(product) do %>
+                            <%= attachment_image_tag product, :image, :fill, 230,154, fallback: 'sample.png' %>
+                            <h3 class="product-name"><%= product.name %></h3>
+                            <p>¥<%= product.tax %></p>
+                        <% end %>
                     </section>
                 <% end %>
             </div>
