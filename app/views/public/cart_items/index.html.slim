@@ -28,6 +28,8 @@
                   = f.submit "変更", class:"btn btn-primary col-xs-offset-1"
               td
                 = cart_item.total_price(cart_item.number, cart_item.item.tax)
+              td
+                = link_to "削除する", cart_items_delete_path(cart_item), method: :delete ,class:"btn btn-danger"
     div.col-xs-4.col-xs-offset-7
       table.table
         th

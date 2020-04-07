@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   get '/items' => 'public/items#index'
 
   patch '/cart_items/:id' => 'public/cart_items#update', as: 'cart_items_update'
+  delete '/cart_items/:id' => 'public/cart_items#destroy', as: 'cart_items_delete'
   get '/cart_items' => 'public/cart_items#index'
   post '/cart_items' => 'public/cart_items#create'
-  delete '/cart_items/:id' => 'public/cart_items#destroy'
   delete '/cart_items/all' => 'public/cart_items#all_destroy'
 
   scope module: :public do

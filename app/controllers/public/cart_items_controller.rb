@@ -15,6 +15,9 @@ class Public::CartItemsController < ApplicationController
 
     # カート内商品削除(一商品)
     def destroy
+        cart_item = CartItem.find(params[:id])
+        cart_item.destroy
+        redirect_to cart_items_path
     end
 
     # カート内商品削除(全部)
