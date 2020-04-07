@@ -1,0 +1,34 @@
+.container
+  .row
+    .col-xs-7
+      h3.product-list.col-xs-4
+        | 商品一覧画面
+      h3.col-xs-1.col-xs-offset-5
+        = link_to "", new_admin_item_path,class:"glyphicon glyphicon-plus"
+    .col-xs-7
+      table.table
+        thead
+          tr
+            th
+              | 商品ID
+            th
+              | 商品名
+            th
+              | 税抜価格
+            th
+              | ジャンル
+            th
+              | ステータス
+        tbody
+          - @products.each do |product|
+            tr
+              td
+                = product.id
+              td
+                = link_to product.name, admin_item_path(product)
+              td
+                = product.tax
+              th
+                = product.genre.name
+              td
+                = product.status

@@ -1,0 +1,22 @@
+.container
+  .row
+    h3.sign_up.col-xs-7.col-xs-offset-2
+      | 会員の方はこちらからログイン
+    .col-xs-7.col-xs-offset-2
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field.row
+          label.col-xs-3
+            | メールアドレス
+          = f.email_field :email, autofocus: true, autocomplete: "email", class:"col-xs-9"
+        .field.row
+          label.col-xs-3
+            | パスワード
+          = f.password_field :password, autocomplete: "current-password", class:"col-xs-9"
+        .actions.submit.row
+          = f.submit "Log in", class:"btn btn-info"
+    .col-xs-7.col-xs-offset-2.login
+      h3
+        | 登録がお済みでない方
+      p
+        = link_to "こちら", new_end_user_registration_path
+        | から新規登録を行って下さい。

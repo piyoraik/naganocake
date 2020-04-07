@@ -1,0 +1,45 @@
+.container
+  .row
+    h3.col-xs-7.col-xs-offset-2.edit
+      | 登録情報編集
+    .col-xs-7.col-xs-offset-1
+      = form_for current_end_user do |f|
+        .field.row
+          label.col-xs-3
+            | 名前
+          em.col-xs-1
+            | (性)
+          = f.text_field :first_name, class:"col-xs-3", autofocus: true
+          em.col-xs-1
+            | (名)
+          = f.text_field :last_name, class:"col-xs-3"
+        .field.row
+          label.col-xs-3
+            | フリガナ
+          em.col-xs-1
+            | (セイ)
+          = f.text_field :first_name_kana, class:"col-xs-3"
+          em.col-xs-1
+            | (メイ)
+          = f.text_field :last_name_kana, class:"col-xs-3"
+        .field.row
+          label.col-xs-4
+            | メールアドレス
+          = f.text_field :email, class:"col-xs-7"
+        .field.row
+          label.col-xs-4
+            | 郵便番号(ハイフンなし)
+          = f.text_field :postcode
+        .field.row
+          label.col-xs-4
+            | 住所
+          = f.text_field :address, class:"col-xs-8"
+        .field.row
+          label.col-xs-4
+            | 電話番号(ハイフンなし)
+          = f.text_field :phone_number
+        .actions
+          .col-xs-4.col-xs-offset-2
+            = f.submit "編集内容を保存する", class:"btn btn-primary"
+      .col-xs-3.col-xs-offset-3
+        = link_to "退会する", end_users_destroy_show_path, class:"btn btn-danger"

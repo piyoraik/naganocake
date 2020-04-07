@@ -1,0 +1,30 @@
+.container
+  .row
+    h3
+      | 会員一覧画面
+    .col-xs-7
+      table.table
+        thead
+          tr
+            th
+              | 会員ID
+            th
+              | 氏名
+            th
+              | メールアドレス
+            th
+              | ステータス
+        tbody
+          - @users.each do |user|
+            tr
+              td
+                = user.id
+              td
+                = user.first_name + "　" + user.last_name
+              td
+                = user.email
+              td
+                - unless user.paranoia_destroyed?
+                  |  有効 
+                - else
+                  |  退会済み 

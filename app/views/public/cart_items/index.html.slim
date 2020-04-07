@@ -1,0 +1,21 @@
+.container
+  .row
+    h3
+      | ショッピングカート
+    div
+      table
+        thead
+          tr
+            th
+              | 商品名
+            th
+              | 単価(税込み)
+            th
+              | 数量
+            th
+              | 小計
+        tbody
+          - @cart_items.each do |cart_item|
+            tr
+              td
+                = cart_item.product.name
