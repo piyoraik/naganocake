@@ -22,6 +22,8 @@ class Public::CartItemsController < ApplicationController
 
     # カート内商品削除(全部)
     def all_destroy
+        cart_items = current_end_user.cart_items.destroy_all
+        redirect_to cart_items_path
     end
 
     # カート内商品データ追加

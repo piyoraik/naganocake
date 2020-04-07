@@ -2,6 +2,8 @@
   .row
     h3.col-xs-offset-1
       | ショッピングカート
+    div.col-xs-offset-9
+      = link_to 'カートを空にする', cart_items_all_delete_path, method: :delete,class:'btn btn-danger'
     div.col-xs-10.col-xs-offset-1
       table.table
         thead
