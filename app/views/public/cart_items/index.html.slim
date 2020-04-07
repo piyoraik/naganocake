@@ -1,8 +1,8 @@
 .container
   .row
-    h3
+    h3.col-xs-offset-1
       | ショッピングカート
-    div
+    div.col-xs-10.col-xs-offset-1
       table.table
         thead
           tr
@@ -16,6 +16,7 @@
               | 小計
         tbody
           - @cart_items.each do |cart_item|
+            - @total_tax = cart_item.total_price(cart_item.number, cart_item.item.tax) + @total_tax
             tr
               td
                 = cart_item.item.name
@@ -23,9 +24,13 @@
                 = cart_item.item.tax
               td
                 = form_for cart_item, url:cart_items_update_path(cart_item.id), method: :patch do |f|
-                  div.number-box.col-xs-4
-                    = f.text_field :number
-                  div.number-box
-                    = f.submit "変更", class:"btn btn-primary"
+                  = f.text_field :number, class:"col-xs-2"
+                  = f.submit "変更", class:"btn btn-primary col-xs-offset-1"
               td
-                = cart_item.number * cart_item.item.tax
+                = cart_item.total_price(cart_item.number, cart_item.item.tax)
+    div.col-xs-4.col-xs-offset-7
+      table.table
+        th
+          | 合計金額
+        td
+          = @total_tax

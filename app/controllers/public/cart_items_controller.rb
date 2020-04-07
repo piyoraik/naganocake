@@ -2,6 +2,7 @@ class Public::CartItemsController < ApplicationController
     before_action :authenticate_end_user!
     # カート内商品一覧画面
     def index
+        @total_tax = 0
         @cart_items = CartItem.all
     end
 
