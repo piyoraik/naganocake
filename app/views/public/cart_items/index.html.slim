@@ -3,7 +3,7 @@
     h3
       | ショッピングカート
     div
-      table
+      table.table
         thead
           tr
             th
@@ -19,3 +19,13 @@
             tr
               td
                 = cart_item.item.name
+              td
+                = cart_item.item.tax
+              td
+                = form_for cart_item, url:cart_items_update_path(cart_item.id), method: :patch do |f|
+                  div.number-box.col-xs-4
+                    = f.text_field :number
+                  div.number-box
+                    = f.submit "変更", class:"btn btn-primary"
+              td
+                = cart_item.number * cart_item.item.tax

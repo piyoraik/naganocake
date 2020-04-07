@@ -1,4 +1,5 @@
 class Public::CartItemsController < ApplicationController
+    before_action :authenticate_end_user!
     # カート内商品一覧画面
     def index
         @cart_items = CartItem.all
@@ -6,6 +7,9 @@ class Public::CartItemsController < ApplicationController
 
     # カート内商品データ更新
     def update
+        cart_item = CartItem.find(params[:id])
+        cart_item.update(cart_item_update)
+        redirect_to cart_items_path
     end
 
     # カート内商品削除(一商品)
@@ -27,5 +31,9 @@ class Public::CartItemsController < ApplicationController
     private
         def cart_add_params
             params.require(:cart_item).permit(:item_id, :end_user_id, :number)
+        end
+
+        def cart_item_update
+            params.require(:cart_item).permit(:number)
         end
 end
