@@ -1,6 +1,7 @@
 class Public::OrdersController < ApplicationController
     # 購入情報入力画面(支払い方法・配送先の選択)
     def new
+        @order = Order.new
     end
 
     # 購入情報確認画面
@@ -14,4 +15,6 @@ class Public::OrdersController < ApplicationController
     # 購入確定処理
     def create
     end
+
+    private
 end
