@@ -5,4 +5,5 @@ class EndUser < ApplicationRecord
           :rememberable, :validatable
   acts_as_paranoid
   has_many :cart_items, dependent: :destroy
+  has_many :orders, dependent: :destroy
 end
