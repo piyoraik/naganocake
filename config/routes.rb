@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'public/items#top'
 
   devise_for :end_users,
   path: "end_user",
@@ -7,7 +8,10 @@ Rails.application.routes.draw do
     registrations: 'public/registrations'
   }
 
-  root 'public/items#top'
+  get '/orders/new' => 'public/orders#new'
+  get '/orders/check' => 'public/orders#check'
+  get '/orders/thanks' => 'public/orders#thanks'
+  post '/orders' => 'public/orders#create'
 
   get '/items/:id' => 'public/items#show', as: 'item'
   get '/items' => 'public/items#index'
