@@ -28,9 +28,16 @@ class Public::CartItemsController < ApplicationController
 
     # カート内商品データ追加
     def create
-        cart = CartItem.new(cart_add_params)
-        cart.end_user_id = current_end_user.id
-        cart.save
+        # binding pry
+        if current_end_user.cart_items.find_by(item_id: params[:cart_item][:item_id])
+            cart_item = current_end_user.cart_items.find_by(item_id: params[:cart_item][:item_id])
+            cart_item.number = params[:cart_item][:item_id].to_i + cart_item.number
+            cart_item.save
+        else
+            cart = CartItem.new(cart_add_params)
+            cart.end_user_id = current_end_user.id
+            cart.save
+        end
         redirect_to cart_items_path
     end
 

@@ -6,5 +6,4 @@ class CartItem < ApplicationRecord
         total = number * tax
         return total
     end
-
 end
