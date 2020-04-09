@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     registrations: 'public/registrations'
   }
 
-  resources :addresses
+  get '/addresses' => 'public/addresses#index'
+  post '/addresses' => 'public/addresses#create'
+  patch '/addresses/:id' => 'public/addresses#update'
+  delete '/addresses/:id' => 'public/addresses#destroy'
+  get '/addresses/:id/edit' => 'public/addresses#edit'
 
   get '/orders/new' => 'public/orders#new'
   get '/orders/check' => 'public/orders#check'
