@@ -3,7 +3,7 @@ class Public::CartItemsController < ApplicationController
     # カート内商品一覧画面
     def index
         @total_tax = 0
-        @cart_items = CartItem.all
+        @cart_items = current_end_user.cart_items
     end
 
     # カート内商品データ更新
