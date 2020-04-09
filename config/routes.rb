@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     registrations: 'public/registrations'
   }
 
+  resources :addresses
+
   get '/orders/new' => 'public/orders#new'
   get '/orders/check' => 'public/orders#check'
   get '/orders/thanks' => 'public/orders#thanks'
