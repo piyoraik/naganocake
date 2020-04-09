@@ -2,7 +2,7 @@
   .row
     = render 'layouts/category',categorys: Genre.all
     .col-xs-4
-      = attachment_image_tag @product, :image, :fill, 60, 60, fallback: 'sample.png'
+      = attachment_image_tag @product, :image, :fill, 300, 300, fallback: 'sample.png'
     .col-xs-5
       h3
         = @product.name
