@@ -5,13 +5,16 @@ class Public::AddressesController < ApplicationController
     end
 
     def create
-        address = Address.new(address_add_params)
+        address = Address.new(address_params)
         address.end_user_id = current_end_user.id
         address.save
         redirect_to addresses_path
     end
 
     def update
+        address = Address.find(params[:id])
+        address.update(address_params)
+        redirect_to addresses_path
     end
 
     def destroy
@@ -25,7 +28,7 @@ class Public::AddressesController < ApplicationController
     end
 
     private
-        def address_add_params
+        def address_params
             params.require(:address).permit(:postcode, :address, :destination)
         end
 end
