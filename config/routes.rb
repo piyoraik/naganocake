@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get '/orders/new' => 'public/orders#new'
   get '/orders/check' => 'public/orders#check'
+  post '/orders/check-show' => 'public/orders#check_show'
   get '/orders/thanks' => 'public/orders#thanks'
   post '/orders' => 'public/orders#create'
 

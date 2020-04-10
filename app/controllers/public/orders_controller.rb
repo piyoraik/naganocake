@@ -4,6 +4,12 @@ class Public::OrdersController < ApplicationController
         @order = Order.new
     end
 
+    # 購入確認処理
+    def check_show
+        @order = Order.new(order_params)
+        binding pry
+    end
+
     # 購入情報確認画面
     def check
     end
@@ -17,4 +23,7 @@ class Public::OrdersController < ApplicationController
     end
 
     private
+        def order_params
+            params.require(:order).permit(:end_user_id, :payment, :status, :postage, :amount, :address, :postcode, :destination)
+        end
 end
