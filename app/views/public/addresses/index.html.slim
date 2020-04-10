@@ -27,3 +27,12 @@
                         | 住所
                     th
                         | 宛名
+                tbody
+                    - @addresses.each do |address|
+                        tr
+                            td
+                                = address.postcode
+                            td
+                                = address.address
+                            td
+                                = address.destination
