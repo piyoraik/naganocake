@@ -10,9 +10,9 @@ Rails.application.routes.draw do
 
   get '/addresses' => 'public/addresses#index'
   post '/addresses' => 'public/addresses#create'
-  patch '/addresses/:id' => 'public/addresses#update'
-  delete '/addresses/:id' => 'public/addresses#destroy'
-  get '/addresses/:id/edit' => 'public/addresses#edit'
+  patch '/addresses/:id' => 'public/addresses#update', as: 'address_update'
+  delete '/addresses/:id' => 'public/addresses#destroy', as: 'address_destroy'
+  get '/addresses/:id/edit' => 'public/addresses#edit', as: 'address_edit'
 
   get '/orders/new' => 'public/orders#new'
   get '/orders/check' => 'public/orders#check'
