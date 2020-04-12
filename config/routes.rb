@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   get '/addresses/:id/edit' => 'public/addresses#edit', as: 'address_edit'
 
   get '/orders/new' => 'public/orders#new'
-  get '/orders/check' => 'public/orders#check'
   post '/orders/check-show' => 'public/orders#check_show'
   get '/orders/thanks' => 'public/orders#thanks'
   post '/orders' => 'public/orders#create'

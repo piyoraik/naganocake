@@ -26,10 +26,6 @@
                             | 　
                             = current_end_user.first_name + current_end_user.last_name
 
-                            = hidden_field_tag :postcode, :value => current_end_user.postcode
-                            = hidden_field_tag :address, :value => current_end_user.address
-                            = hidden_field_tag :destination, :value => current_end_user.first_name + current_end_user.last_name
-
                         span.address
                             = radio_button_tag :select, "2"
                             | 登録済み住所から選択

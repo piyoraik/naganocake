@@ -1,0 +1,60 @@
+.container
+    .row
+        h3
+            | 注文情報確認
+        .col-xs-8
+            table.table.table-bordered
+                thead
+                    th
+                        | 商品名
+                    th
+                        | 単価(税込み)
+                    th
+                        | 数量
+                    th
+                        | 小計
+                tbody
+                    - current_end_user.cart_items.each do |cart_item|
+                        - @total_tax = @total_tax + cart_item.item.tax * cart_item.number
+                        tr
+                            td
+                                = cart_item.item.name
+                            td
+                                = cart_item.item.tax
+                            td
+                                = cart_item.number
+                            td
+                                = cart_item.item.tax * cart_item.number
+
+        .col-xs-3
+            table.table.table-bordered
+                tr
+                    th
+                        | 送料
+                    td
+                        | 800
+                tr
+                    th
+                        | 商品合計
+                    td
+                        = @total_tax
+                tr
+                    th
+                        | 請求金額
+                    td
+                        = @total_tax + 800
+
+    .row
+        .col-xs-4
+            = form_for(@order, url: orders_path) do |f|
+                label.col-xs-4
+                    | 支払い方法
+                = @order.payment
+
+    .row
+        .col-xs-4
+            label.col-xs-4
+                | お届け先
+            = @order.postcode + @order.address
+            | <br>
+            = @order.destination

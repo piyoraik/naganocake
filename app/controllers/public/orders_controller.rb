@@ -6,13 +6,17 @@ class Public::OrdersController < ApplicationController
 
     # 購入確認処理
     def check_show
+        @order = Order.new(order_params)
+        @total_tax = 0
+        @order.payment = params[:order][:payment]
         if params[:select] == "1"
-            binding pry
+            @order.address = current_end_user.address
+            @order.postcode = current_end_user.postcode
+            @order.destination = current_end_user.first_name + current_end_user.last_name
         elsif params[:select] == "2"
-            @address = Order.new(order_params)
-            binding pry
+            # binding pry
         elsif params[:select] == "3"
-            binding pry
+            # binding pry
         end
     end
 
