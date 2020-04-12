@@ -18,9 +18,10 @@ class Public::OrdersController < ApplicationController
             @order.address = params[:address_select]
             @order.postcode = address.postcode
             @order.destination = address.destination
-
         elsif params[:select] == "3"
-            # binding pry
+            @order.address = params[:order][:address]
+            @order.postcode = params[:order][:postage]
+            @order.destination = params[:order][:destination]
         end
     end
 
