@@ -14,7 +14,11 @@ class Public::OrdersController < ApplicationController
             @order.postcode = current_end_user.postcode
             @order.destination = current_end_user.first_name + current_end_user.last_name
         elsif params[:select] == "2"
-            # binding pry
+            address = Address.find_by(address: params[:address_select])
+            @order.address = params[:address_select]
+            @order.postcode = address.postcode
+            @order.destination = address.destination
+
         elsif params[:select] == "3"
             # binding pry
         end
