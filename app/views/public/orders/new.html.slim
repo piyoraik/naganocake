@@ -19,10 +19,11 @@
                         | お届け先
                     .col-xs-5
                         span.address
-                            = radio_button_tag :address_select, "1", checked: true
+                            = radio_button_tag :select, "1", checked: true
                             | ご自身の住所
-                            = current_end_user.postcode + " " + current_end_user.address
                             | <br>
+                            = current_end_user.postcode + " " + current_end_user.address
+                            | 　
                             = current_end_user.first_name + current_end_user.last_name
 
                             = hidden_field_tag :postcode, :value => current_end_user.postcode
@@ -30,13 +31,13 @@
                             = hidden_field_tag :destination, :value => current_end_user.first_name + current_end_user.last_name
 
                         span.address
-                            = radio_button_tag :address_select, "2"
+                            = radio_button_tag :select, "2"
                             | 登録済み住所から選択
                             | <br>
-                            = f.collection_select :address, current_end_user.addresses, :id, :postcode
+                            = select_tag :address_select ,options_for_select(Address.where(end_user_id: current_end_user.id).map { |f| [f.address] })
 
                         span.address
-                            = radio_button_tag :address_select, "3"
+                            = radio_button_tag :select, "3"
                             | 新しいお届け先
                             .div
                                 .field.row

@@ -6,12 +6,14 @@ class Public::OrdersController < ApplicationController
 
     # 購入確認処理
     def check_show
-        @order = Order.new(order_params)
-        binding pry
-    end
-
-    # 購入情報確認画面
-    def check
+        if params[:select] == "1"
+            binding pry
+        elsif params[:select] == "2"
+            @address = Order.new(order_params)
+            binding pry
+        elsif params[:select] == "3"
+            binding pry
+        end
     end
 
     # 購入完了画面
