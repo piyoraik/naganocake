@@ -15,7 +15,7 @@
                         | 小計
                 tbody
                     - current_end_user.cart_items.each do |cart_item|
-                        - @total_tax = @total_tax + cart_item.item.tax * cart_item.number
+                        - @total_tax = @total_tax.to_i + cart_item.item.tax.to_i * cart_item.number.to_i
                         tr
                             td
                                 = cart_item.item.name
@@ -24,7 +24,7 @@
                             td
                                 = cart_item.number
                             td
-                                = cart_item.item.tax * cart_item.number
+                                = cart_item.item.tax.to_i * cart_item.number.to_i
 
         .col-xs-3
             table.table.table-bordered
@@ -52,9 +52,13 @@
                 = @order.payment
 
     .row
-        .col-xs-4
-            label.col-xs-4
+        .col-xs-7
+            label.col-xs-2
                 | お届け先
             = @order.postcode + @order.address
             | <br>
             = @order.destination
+
+    .row
+        .col-xs-5.col-xs-offset-5
+            | aaa
