@@ -36,6 +36,8 @@ class Public::OrdersController < ApplicationController
     def create
         @order = Order.new(order_params)
         @order.end_user_id = current_end_user.id
+        @order.save
+        current_end_user.cart_items.destroy_all
         redirect_to orders_thanks_path
     end
 
