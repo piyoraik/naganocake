@@ -8,6 +8,8 @@ class Public::OrdersController < ApplicationController
     def check_show
         @order = Order.new(order_params)
         @total_tax = 0
+        @order.amount = 0
+        @order.postage = 800
         @order.payment = params[:order][:payment]
         if params[:select] == "1"
             @order.address = current_end_user.address
@@ -23,6 +25,7 @@ class Public::OrdersController < ApplicationController
             @order.postcode = params[:order][:postage]
             @order.destination = params[:order][:destination]
         end
+        # binding pry
     end
 
     # 購入完了画面
@@ -31,10 +34,13 @@ class Public::OrdersController < ApplicationController
 
     # 購入確定処理
     def create
+        @order = Order.new(order_params)
+        @order.end_user_id = current_end_user.id
+        redirect_to orders_thanks_path
     end
 
     private
         def order_params
-            params.require(:order).permit(:end_user_id, :payment, :status, :postage, :amount, :address, :postcode, :destination)
+            params.require(:order).permit(:payment, :status, :postage, :amount, :address, :postcode, :destination)
         end
 end
