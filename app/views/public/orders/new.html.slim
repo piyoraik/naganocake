@@ -9,7 +9,7 @@
                         | 支払い方法
                     .col-xs-5
                         span.payment
-                            = f.radio_button :payment, 'クレジットカード'
+                            = f.radio_button :payment, 'クレジットカード', {:checked => true}
                             | クレジットカード
                         span.payment
                             = f.radio_button :payment, '銀行振込'
