@@ -40,5 +40,6 @@
           | 合計金額
         td
           = @total_tax
-    div.col-xs-4.col-xs-offset-5
-      = link_to '情報入力に進む', orders_new_path, class: "btn btn-success"
+    - if current_end_user.cart_items.exists?
+      div.col-xs-4.col-xs-offset-5
+        = link_to '情報入力に進む', orders_new_path, class: "btn btn-success"
