@@ -1,4 +1,5 @@
 class Public::OrdersController < ApplicationController
+    before_action :cart_item_check
     # 購入情報入力画面(支払い方法・配送先の選択)
     def new
         @order = Order.new
@@ -44,5 +45,12 @@ class Public::OrdersController < ApplicationController
     private
         def order_params
             params.require(:order).permit(:payment, :status, :postage, :amount, :address, :postcode, :destination)
+        end
+
+        def cart_item_check
+            cart_item = current_end_user.cart_items
+            unless cart_item.exists?
+                redirect_to items_path
+            end
         end
 end
