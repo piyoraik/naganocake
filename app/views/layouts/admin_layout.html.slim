@@ -16,8 +16,7 @@ html
         nav.nav.navbar-nav.navbar-right
           - if admin_signed_in?
             li
-              a[href="#"]
-                | 受注一覧
+              = link_to '受注一覧', admin_orders_path
             li
               = link_to '商品追加', new_admin_item_path
             li
