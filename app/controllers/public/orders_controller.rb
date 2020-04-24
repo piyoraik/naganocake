@@ -5,6 +5,9 @@ class Public::OrdersController < ApplicationController
         @order = Order.new
     end
 
+    def show
+    end
+
     # 購入確認処理
     def check_show
         @order = Order.new(order_params)
@@ -38,6 +41,15 @@ class Public::OrdersController < ApplicationController
         @order = Order.new(order_params)
         @order.end_user_id = current_end_user.id
         @order.save
+
+        current_end_user.cart_items.each do |cart_item|
+            @order_detail = OrderDetail.new
+            @order_detail.order_id = @order.id
+            @order_detail.item_id = cart_item.item_id
+            @order_detail.amount = cart_item.number
+            @order_detail.tax = cart_item.number.to_i * cart_item.item.tax.to_i
+            @order_detail.save
+        end
         current_end_user.cart_items.destroy_all
         redirect_to orders_thanks_path
     end
@@ -46,6 +58,10 @@ class Public::OrdersController < ApplicationController
         def order_params
             params.require(:order).permit(:payment, :status, :postage, :amount, :address, :postcode, :destination)
         end
+
+        # def order_detail_params
+        #     params.require(:order_detail).permit
+        # end
 
         def cart_item_check
             cart_item = current_end_user.cart_items
