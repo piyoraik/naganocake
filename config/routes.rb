@@ -14,10 +14,12 @@ Rails.application.routes.draw do
   delete '/addresses/:id' => 'public/addresses#destroy', as: 'address_destroy'
   get '/addresses/:id/edit' => 'public/addresses#edit', as: 'address_edit'
 
+  get '/orders' => 'public/orders#index'
   get '/orders/new' => 'public/orders#new'
   post '/orders/check-show' => 'public/orders#check_show'
   get '/orders/thanks' => 'public/orders#thanks'
   post '/orders' => 'public/orders#create'
+  get '/orders/:id' => 'public/orders#show', as: 'order'
 
   get '/items/:id' => 'public/items#show', as: 'item'
   get '/items' => 'public/items#index'

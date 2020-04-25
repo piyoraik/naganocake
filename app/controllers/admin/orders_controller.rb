@@ -3,4 +3,9 @@ class Admin::OrdersController < ApplicationController
     def index
         @orders = Order.all
     end
+
+    def show
+        @total_tax = 0
+        @order = Order.find(params[:id])
+    end
 end

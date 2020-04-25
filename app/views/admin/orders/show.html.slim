@@ -1,0 +1,76 @@
+.container
+    .row
+        h3.col-xs-7.col-xs-offset-1
+            | 注文詳細画面
+        .col-xs-12
+            .col-xs-6
+                h4
+                    | 注文情報
+                table.table
+                    tr
+                        th
+                            | 注文日
+                        td
+                            = @order.created_at.strftime('%Y/%m/%d')
+                    tr
+                        th
+                            | 配送先
+                        td
+                            = @order.postcode
+                            | <br>
+                            = @order.address
+                            | <br>
+                            = @order.destination
+                    tr
+                        th
+                            | 支払い方法
+                        td
+                            = @order.payment
+                    tr
+                        th
+                            | 注文ステータス
+                        td
+                            | まだ作ってない
+
+    .row
+        .col-xs-8
+            table.table
+                thead
+                    th
+                        | 商品名
+                    th
+                        | 単価(税込み)
+                    th
+                        | 数量
+                    th
+                        | 制作ステータス
+                tbody
+                    - @order.order_details.each do |detail|
+                        - @total_tax = @total_tax.to_i + detail.tax.to_i
+                        tr
+                            td
+                                = detail.item.name
+                            td
+                                = detail.tax
+                            td
+                                = detail.amount
+                            td
+                                | まだ作ってない
+
+        .col-xs-4
+            table
+                tr
+                    th
+                        | 商品合計
+                    td
+                        = @total_tax
+                tr
+                    th
+                        | 送料
+                    td
+                        = @order.postage
+                tr
+                    th
+                        | 請求合計金額
+                    td
+                        = @total_tax.to_i + @order.postage

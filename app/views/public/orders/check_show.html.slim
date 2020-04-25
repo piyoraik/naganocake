@@ -34,7 +34,7 @@
                         th
                             | 送料
                         td
-                            | 800
+                            = @order.postage
                     tr
                         th
                             | 商品合計
@@ -44,7 +44,7 @@
                         th
                             | 請求金額
                         td
-                            = @total_tax.to_i + 800
+                            = @total_tax.to_i + @order.postage.to_i
 
         .row
             .col-xs-4
@@ -68,5 +68,4 @@
                 = f.hidden_field :address, :vallue => @order.address
                 = f.hidden_field :postcode, :value => @order.postcode
                 = f.hidden_field :destination, :value => @order.destination
-
                 = f.submit '購入を確定する', class:"btn btn-primary"

@@ -1,11 +1,18 @@
 class Public::OrdersController < ApplicationController
-    before_action :cart_item_check
-    # 購入情報入力画面(支払い方法・配送先の選択)
-    def new
-        @order = Order.new
+    before_action :cart_item_check, only: [:new, :check_show, :thanks, :create]
+
+    def index
+        @orders = Order.all
     end
 
     def show
+        @order = Order.find(params[:id])
+        @subtotal = 0
+    end
+
+    # 購入情報入力画面(支払い方法・配送先の選択)
+    def new
+        @order = Order.new
     end
 
     # 購入確認処理
