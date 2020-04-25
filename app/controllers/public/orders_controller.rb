@@ -2,12 +2,13 @@ class Public::OrdersController < ApplicationController
     before_action :cart_item_check, only: [:new, :check_show, :thanks, :create]
 
     def index
-        @orders = Order.all
+        @orders = current_end_user.orders
     end
 
     def show
-        @order = Order.find(params[:id])
+        @order = current_end_user.orders.find(params[:id])
         @subtotal = 0
+        @paytotal = 0
     end
 
     # 購入情報入力画面(支払い方法・配送先の選択)
