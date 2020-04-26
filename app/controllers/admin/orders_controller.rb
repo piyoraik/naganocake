@@ -12,6 +12,12 @@ class Admin::OrdersController < ApplicationController
     def update
         order = Order.find(params[:id])
         order.update(order_status_params)
+        if order.status = 1
+            order.order_details.each do |detail|
+                detail.status = 1
+                detail.save
+            end
+        end
         redirect_to admin_order_path(order)
     end
 
