@@ -4,8 +4,10 @@ class Order < ApplicationRecord
     has_many :order_details, dependent: :destroy
 
     enum status:[
-        :beef,
-        :fish,
-        :pork
+        :waitng_pay,
+        :confirmation_pay,
+        :production,
+        :preparations,
+        :shipped
     ]
 end

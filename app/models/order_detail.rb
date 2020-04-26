@@ -3,8 +3,9 @@ class OrderDetail < ApplicationRecord
     belongs_to :order
 
     enum status:[
-        :beef,
-        :fish,
-        :pork
+        :not_proceed,
+        :waiting_production,
+        :production,
+        :production_comp
     ]
 end

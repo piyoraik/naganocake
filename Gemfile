@@ -78,3 +78,4 @@ gem "slim"
 gem "html2slim"
 
 gem 'enum_help'
+gem 'rails-i18n'
