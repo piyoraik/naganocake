@@ -57,7 +57,9 @@
                             td
                                 = detail.amount
                             td
-                                = detail.status_i18n
+                                = form_for detail, url: admin_order_item_path(detail) do |f|
+                                    = f.select :status, OrderDetail.statuses.keys.map { |k| [I18n.t("enums.order_detail.status.#{k}"),k] }
+                                    = f.submit '更新', class: "btn btn-primary"
 
         .col-xs-4
             table.table
