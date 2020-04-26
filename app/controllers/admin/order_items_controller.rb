@@ -4,6 +4,11 @@ class Admin::OrderItemsController < ApplicationController
     def update
         order = OrderDetail.find(params[:id])
         order.update(details_params)
+        # binding pry
+        if order.status == 'production'
+            order.order.status = 2
+            order.order.save
+        end
         redirect_to admin_order_path(order.order_id)
     end
 
