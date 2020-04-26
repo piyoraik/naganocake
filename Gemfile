@@ -76,3 +76,5 @@ gem "refile-mini_magick"
 gem "slim"
 
 gem "html2slim"
+
+gem 'enum_help'
