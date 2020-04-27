@@ -1,0 +1,48 @@
+.container
+  .row
+    h3.col-xs-7.col-xs-offset-2
+      | マイページ
+    .col-xs-7.col-xs-offset-1
+      h4.info
+        | 登録情報
+      = link_to  "編集する",  end_users_edit_path , class:"btn btn-primary"
+      = link_to  "パスワードを変更する", '#' , class:"btn btn-primary"
+      table.table.table-bordered.rireki
+        tr
+          th
+            | 氏名
+          td
+            = current_end_user.first_name + "　" +current_end_user.last_name
+        tr
+          th
+            | カナ
+          td
+            = current_end_user.first_name_kana + "　" + current_end_user.last_name_kana
+        tr
+          th
+            | 郵便番号
+          td
+            = current_end_user.postcode
+        tr
+          th
+            | 住所
+          td
+            = current_end_user.address
+        tr
+          th
+            | 電話番号
+          td
+            = current_end_user.phone_number
+        tr
+          th
+            | メールアドレス
+          td
+            = current_end_user.email
+    .col-xs-7.col-xs-offset-1
+      h4.col-xs-2
+        | 配送先
+      = link_to  "一覧を見る", addresses_path, class:'btn btn btn-primary'
+    .col-xs-7.col-xs-offset-1.rireki
+      h4.col-xs-2
+        | 注文履歴
+      = link_to  "一覧を見る", orders_path, class:'btn btn btn-primary'

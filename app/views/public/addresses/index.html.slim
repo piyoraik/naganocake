@@ -1,0 +1,42 @@
+.container
+    .row
+        h3.col-xs-offset-1
+            | 配送先登録/一覧
+        .col-xs-10.col-xs-offset-1
+            = form_with model: @address do |f|
+                .field.row
+                    label.col-xs-3
+                        | 郵便番号(ハイフンなし)
+                    = f.text_field :postcode
+                .field.row
+                    label.col-xs-3
+                        | 住所
+                    = f.text_field :address, class:"col-xs-5"
+                .field.row
+                    label.col-xs-3
+                        | 宛名
+                    = f.text_field :destination
+                    = f.submit "登録する", class:"col-xs-offset-4 btn btn-success"
+        .col-xs-10.col-xs-offset-1
+            table.table.table-bordered
+                thead
+                    th
+                        | 郵便番号
+                    th
+                        | 住所
+                    th
+                        | 宛名
+                    th
+                        |
+                tbody
+                    - @addresses.each do |address|
+                        tr
+                            td
+                                = address.postcode
+                            td
+                                = address.address
+                            td
+                                = address.destination
+                            td
+                                = link_to '編集する', address_edit_path(address), class:"btn btn-primary"
+                                = link_to '削除する', address_destroy_path(address), method: :delete , class:"btn btn-danger"

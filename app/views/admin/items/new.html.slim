@@ -1,0 +1,36 @@
+.container
+  .row
+    h3
+      | 商品新規登録画面
+    = form_for @product, url: admin_items_path do |f|
+      .col-xs-4
+        = image_tag 'sample.png', id: :img_prev, width: "300px"
+        = f.attachment_field :image, id: :user_img, class:"btn btn-primary"
+      .col-xs-8
+        .field.row
+          label.col-xs-2
+            | 商品名
+          = f.text_field :name, class:"col-xs-4"
+        .field.row
+          label.col-xs-2
+            | 商品説明
+          = f.text_area :description, class:"col-xs-4"
+        .field.row
+          label.col-xs-2
+            | ジャンル
+          = f.collection_select :genre_id, Genre.all, :id, :name, class:"col-xs-4"
+        .field.row
+          label.col-xs-2
+            | 税抜価格
+          = f.text_field :tax, class:"col-xs-4"
+          | 円
+        .field.row
+          label.col-xs-2
+            | 販売ステータス
+          span.col-xs-2
+            = f.radio_button :status, '販売中'
+            | 販売中
+          = f.radio_button :status, '販売停止中'
+          | 販売停止中 
+      .col-xs-offset-8
+        = f.submit '新規登録', class:"btn btn-primary"

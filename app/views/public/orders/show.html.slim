@@ -1,0 +1,78 @@
+- @order.order_details.each do |details|
+    - @subtotal = @subtotal.to_i + details.item.tax.to_i
+.container
+    .row
+        h3
+            | 注文履歴詳細
+        .col-xs-6
+            h4
+                | 注文情報
+            table.table
+                tr
+                    th
+                        | 注文日
+                    td
+                        = @order.created_at.strftime('%Y/%m/%d')
+                tr
+                    th
+                        | 配送先
+                    td
+                        = @order.postcode
+                        | <br>
+                        = @order.address
+                        | <br>
+                        = @order.destination
+                tr
+                    th
+                        | 支払方法
+                    td
+                        = @order.payment
+                tr
+                    th
+                        | ステータス
+                    td
+                        = @order.status_i18n
+
+        .col-xs-4
+            h4
+                | 請求情報
+            table.table
+                tr
+                    th
+                        | 商品合計
+                    td
+                        = @subtotal
+                tr
+                    th
+                        | 配送料
+                    td
+                        = @order.postage
+                tr
+                    th
+                        | 請求金額
+                    td
+                        = @subtotal.to_i + @order.postage
+
+    .row
+        .col-xs-8
+            table.table
+                thead
+                    th
+                        | 商品
+                    th
+                        | 単価(税込み)
+                    th
+                        | 個数
+                    th
+                        | 小計
+                tbody
+                    - @order.order_details.each do |details|
+                        tr
+                            td
+                                = details.item.name
+                            td
+                                = details.item.tax
+                            td
+                                = details.amount
+                            td
+                                = details.item.tax.to_i * details.amount.to_i

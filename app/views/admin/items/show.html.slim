@@ -1,0 +1,26 @@
+.container
+  .row
+    .col-xs-4
+      = attachment_image_tag @product, :image, :fill, 300,300, fallback: 'sample.png'
+    .col-xs-8
+      .field.row
+        label.col-xs-3
+          | 商品名
+        = @product.name
+      .field.row
+        label.col-xs-3
+          | 商品説明
+        = @product.description
+      .field.row
+        label.col-xs-3
+          | ジャンル
+        = @product.genre.name
+      .field.row
+        label.col-xs-3
+          | 税込価格(税抜価格)
+        = @product.tax
+        | 円
+      .field.row
+        label.col-xs-3
+          | 販売ステータス
+        = @product.status

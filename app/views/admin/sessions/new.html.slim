@@ -1,0 +1,13 @@
+.container
+  .row
+    .col-xs-8.col-xs-offset-2
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field.row
+          |  <label for="email", class="col-xs-3">メールアドレス</label>
+          = f.email_field :email, autofocus: true, autocomplete: "email", class:"col-xs-8"
+        .field.row
+          |  <label for="password", class="col-xs-3">パスワード</label>
+          = f.password_field :password, autocomplete: "current-password", class:"col-xs-8"
+        .actions.row.submit
+          = f.submit "Log in", class:"btn btn-info"
+      = render "admin/shared/links"

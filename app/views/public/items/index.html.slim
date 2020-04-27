@@ -1,0 +1,21 @@
+.container
+  .row
+    = render "layouts/category", categorys: Genre.all
+    .col-xs-9
+      div
+        h2.items-list
+          | 商品一覧
+        span.items-count
+          | (全
+          = @products.count
+          | 件)
+      div
+        - @products.each do |product|
+          section.col-xs-4
+            = link_to item_path(product) do
+              = attachment_image_tag product, :image, :fill, 230,154, fallback: 'sample.png'
+              h3.product-name
+                = product.name
+              p
+                | ¥
+                = product.tax

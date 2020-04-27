@@ -1,0 +1,10 @@
+.col-xs-3
+  table.table.table-bordered
+    thead
+      th
+        | ジャンル検索
+    tbody
+      - categorys.each do |category|
+        tr
+          td
+            = category.name

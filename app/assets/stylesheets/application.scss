@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+#header {
+    height: 100px;
+}
+
+.submit {
+    text-align: center;
+}
+
+div.field {
+    margin-bottom: 10px;
+}
+
+.sign_up {
+    margin-bottom: 50px;
+}
+
+em {
+    font-size: 10px;
+}
+
+.login {
+    margin-top: 40px;
+}
+
+.info {
+    display: inline;
+}
+
+.rireki {
+    margin-top: 10px;
+}
+
+.taikai-p {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+.taikai-div {
+    display: inline;
+}
+
+.product-list {
+    display: inline;
+}
+
+.items-list {
+    display: inline;
+}
+
+.items-count {
+    font-size: 20px;
+}
+
+.product-name {
+    font-size: 15px;
+}
+
+.number {
+    width: 100px;
+}
+
+.number-box {
+    display: inline;
+}
+
+.payment {
+    display: block;
+}
+
+.address {
+    display: block;
+}

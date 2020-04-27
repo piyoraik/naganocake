@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title
+      | Naganocake-admin
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    header#header.page-header
+      .container
+        nav.nav.navbar-nav.navbar-left
+          h1
+            | Logo
+        nav.nav.navbar-nav.navbar-right
+          .col-xs-12
+            h4.info
+              | 検索フォーム
+              = form_tag(admin_items_path, :method => 'get') do
+                = text_field_tag (:search)
+                = submit_tag '検索', :name => nil
+          - if admin_signed_in?
+            li
+              = link_to '受注一覧', admin_orders_path
+            li
+              = link_to '商品追加', new_admin_item_path
+            li
+              = link_to '顧客一覧', admin_end_users_path
+            li
+              = link_to '商品一覧', admin_items_path
+            li
+              = link_to "ログアウト",destroy_admin_session_path, method: :delete
+          - else
+
+    = yield
