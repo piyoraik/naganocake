@@ -3,7 +3,11 @@ class Admin::ItemsController < ApplicationController
     layout 'admin_layout'
     # 商品一覧
     def index
-        @products = Item.all
+        if params[:search].present?
+            @products = Item.where('name LIKE ?',"%#{params[:search]}%")
+        else
+            @products = Item.all
+        end
     end
 
     # 商品新規登録画面

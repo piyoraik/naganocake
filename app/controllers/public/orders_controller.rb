@@ -1,5 +1,5 @@
 class Public::OrdersController < ApplicationController
-    before_action :cart_item_check, only: [:new, :check_show, :thanks, :create]
+    before_action :cart_item_check, only: [:new, :check_show, :create]
 
     def index
         @orders = current_end_user.orders
